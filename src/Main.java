@@ -32,16 +32,7 @@ public class Main {
 
 
     }
-    public static void suviveKuznechik(){
-        for (int i = 0; i < .length; i++) {
-            double d = Point.calcDistance(testFrog.place, route[i]);
-            if( d<= testFrog.tongueLength)
-            {
-                System.out.println("кузнечек съеден в "+(i+1) +" точке");
-                break;
-            }
-        }
-    }
+
     public static void test1 ()
     {
         Frog testFrog = new Frog(new Point(0, 0), 1);
