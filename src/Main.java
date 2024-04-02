@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        askCoordinateFrog();
-        askPathKuznechika();
+        //askPathKuznechika();
+        surviveKuznechik(askCoordinateFrog(),askPathKuznechika());
     }
     public static Frog askCoordinateFrog(){
         System.out.println("Введите координаты, где на ходится лягушка, и длину языка ");
@@ -28,11 +28,21 @@ public class Main {
             coordinatKuznechika[j] = new Point(x, y);
             j++;
         }
-            return coordinatKuznechika;
 
-
+         return coordinatKuznechika;
+        System.out.println("1" + );
     }
 
+    public static void surviveKuznechik(Frog frog, Point[] massiv1){
+        for (int i = 0; i < massiv1.length; i++) {
+            double d = Point.calcDistance(frog.place, massiv1[i]);
+            if( d<= frog.tongueLength)
+            {
+                System.out.println("кузнечек съеден в "+(i+1) +" точке");
+                break;
+            }
+        }
+    }
     public static void test1 ()
     {
         Frog testFrog = new Frog(new Point(0, 0), 1);
@@ -70,7 +80,7 @@ class Point{
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
-        System.out.println("вызван конструктор точки с параметрами "+x+"; "+y);
+       // System.out.println("вызван конструктор точки с параметрами "+x+"; "+y);
     }
 
     public static double calcDistance(Point p1, Point p2){
@@ -85,12 +95,12 @@ class Frog{
     public Frog(Point place, int tongueLength) {
         this.place = place;
         this.tongueLength = tongueLength;
-        System.out.println("вызван конструктор Frog с 2 параметрами");
+       // System.out.println("вызван конструктор Frog с 2 параметрами");
     }
 
     public Frog(int x, int y, int len){
         place = new Point(x, y);
         tongueLength = len;
-        System.out.println("вызван конструктор Frog с 3 параметрами");
+        //System.out.println("вызван конструктор Frog с 3 параметрами");
     }
 }
