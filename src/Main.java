@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         //askPathKuznechika();
-        surviveKuznechik(askCoordinateFrog(),askPathKuznechika());
+        Frog f =askCoordinateFrog();
+        Point[] path = askPathKuznechika();
+        surviveKuznechik(f, path);
     }
     public static Frog askCoordinateFrog(){
         System.out.println("Введите координаты, где на ходится лягушка, и длину языка ");
@@ -24,13 +26,11 @@ public class Main {
         for (int i = 1; i <= n; i++) {
             int x = scan.nextInt();
             int y = scan.nextInt();
-            int j = 1;
-            coordinatKuznechika[j] = new Point(x, y);
-            j++;
+            coordinatKuznechika[i-1] = new Point(x, y);
         }
 
          return coordinatKuznechika;
-        System.out.println("1" + );
+
     }
 
     public static void surviveKuznechik(Frog frog, Point[] massiv1){
@@ -41,7 +41,9 @@ public class Main {
                 System.out.println("кузнечек съеден в "+(i+1) +" точке");
                 break;
             }
-        }
+           else
+                System.out.println("Выжил");
+    }
     }
     public static void test1 ()
     {
