@@ -1,8 +1,47 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        test1();
+        askCoordinateFrog();
+        askPathKuznechika();
     }
+    public static Frog askCoordinateFrog(){
+        System.out.println("Введите координаты, где на ходится лягушка, и длину языка ");
+        Scanner scan = new Scanner(System.in);
+        Point coordFrog = new Point(0,0);
+        coordFrog.x = scan.nextInt();
+        coordFrog.y = scan.nextInt();
+        int tongueLength = scan.nextInt();
+        Frog frog = new Frog(coordFrog, tongueLength);
 
+        return frog;
+    }
+    public static Point[] askPathKuznechika() {
+        System.out.println("Введите количество точек для кузнечика и их координаты");
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();// количество точек для кузнечика
+        Point[] coordinatKuznechika = new Point[n];
+        for (int i = 1; i <= n; i++) {
+            int x = scan.nextInt();
+            int y = scan.nextInt();
+            int j = 1;
+            coordinatKuznechika[j] = new Point(x, y);
+            j++;
+        }
+            return coordinatKuznechika;
+
+
+    }
+    public static void suviveKuznechik(){
+        for (int i = 0; i < .length; i++) {
+            double d = Point.calcDistance(testFrog.place, route[i]);
+            if( d<= testFrog.tongueLength)
+            {
+                System.out.println("кузнечек съеден в "+(i+1) +" точке");
+                break;
+            }
+        }
+    }
     public static void test1 ()
     {
         Frog testFrog = new Frog(new Point(0, 0), 1);
